@@ -30,7 +30,7 @@ export default function SendMoneyForm() {
             return
         }
         if (input.amount && Number(input.amount) < 100) {
-            toast("ফুহিন্নি! ১০০ টার উপরে পাঠান")
+            toast("ফুহিন্নি! ১০০ টাকার উপরে পাঠান")
             return
         }
         if (input.amount > 20000) {

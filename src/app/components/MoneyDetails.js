@@ -1,9 +1,10 @@
+'use client'
+import html2canvas from "html2canvas";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
-import html2canvas from "html2canvas";
 
-export default function MoneyDetails({ money, onClick }) {
+export default function MoneyDetails({ money }) {
   const {
     sender,
     receiver,
@@ -35,12 +36,13 @@ export default function MoneyDetails({ money, onClick }) {
       <div
         className="w-[95%] md:w-[60%] lg:w-[40%] mx-auto bg-white relative"
         id="content"
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           className="absolute right-0 -top-9 text-white rounded bg-pink-600 p-1"
           onClick={convertToImage}
         >
-          download
+          Download
         </button>
 
         <div className="bkash-header flex justify-between p-2 md:p-5 mt-10">
