@@ -123,7 +123,7 @@ export default function MoneyDetails({ money }) {
           </div>
 
         </div>
-        <div className="footer text-center my-10 p-5">
+        <div className="footer text-center my-5 sm:my-10 p-2 sm:p-5">
           <div className="w-14 h-14 mx-auto">
             <svg
               className="bg-pink-500 rounded-full p-2"
