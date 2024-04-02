@@ -11,3 +11,17 @@
         margin: 0;
     }
 }
+
+@layer components {
+    .wrapper {
+        animation: transition 0.5s ease-in-out;
+    }
+    @keyframes transition {
+        from {
+            @apply scale-0;
+        }
+        to {
+            @apply scale-[.8];
+        }
+    }
+}

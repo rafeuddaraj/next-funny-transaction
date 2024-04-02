@@ -44,7 +44,7 @@ export default function SendMoneyForm() {
                 toast.error("এইটা কোনো কথা। আপনার নিজের নাম্বারে নিজেই টাকা পাঠাবেন!")
                 return
             }
-            setInput(prev => ({ ...prev, amount, time, transactionId, currentAmount: parseFloat(currentAmount).toFixed(2), success }))
+            setInput(prev => ({ ...prev, amount, time, transactionId: transactionId.toUpperCase(), currentAmount: parseFloat(currentAmount).toFixed(2), success }))
             setShowModal(true)
         } else {
             toast.error("আপনি আপনার বন্ধুর সাথে মজা নিতে এসে। এই অ্যাপ্লিকেশনের সাথেই মজা নিতে চাচ্ছেন!😆")

@@ -2,6 +2,7 @@
 import html2canvas from "html2canvas";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 export default function MoneyDetails({ money }) {
@@ -31,6 +32,8 @@ export default function MoneyDetails({ money }) {
     });
   };
 
+  const [hideCurrentBalance, setHideCurrentBalance] = useState(false)
+
   return (
     <div>
       <div
@@ -47,10 +50,10 @@ export default function MoneyDetails({ money }) {
 
         <div className="bkash-header flex justify-between p-2 md:p-5 mt-10">
           <div>
-            <h2 className="text-pink-600 lg:text-2xl">
+            <h2 className="text-pink-600 sm:text-2xl">
               আপনার <span className="font-bold">সেন্ড মানি</span>
             </h2>
-            <h2 className="text-green-400 lg:text-2xl font-bold">সফল হয়েছে</h2>
+            <h2 className="text-green-400 sm:text-2xl font-bold">সফল হয়েছে</h2>
           </div>
           <div>
             <span className="border-2 border-[#0BBA5F] rounded-full w-[60px] h-[60px] flex p-2">
@@ -99,10 +102,26 @@ export default function MoneyDetails({ money }) {
           </div>
           <div className="flex flex-col border-b-2 px-5 py-3">
             <span className="text-[#7A7A7A] text-sm mb-2">নতুন ব্যালেন্স</span>
-            <span className="text-black text-sm lg:text-lg font-[500]">
-              ৳{currentAmount}
+            <span className="text-black text-sm lg:text-lg font-[500] flex gap-2">
+              {hideCurrentBalance ?
+                <>
+                  <i>৳{currentAmount}</i>
+                  <Image src={'/show.svg'} height={20} width={20} alt="show icon" onClick={() => setHideCurrentBalance(false)} />
+
+                </> :
+                <>
+                  <Image src={'/hide.svg'} height={20} width={20} alt="hide icon" onClick={() => setHideCurrentBalance(true)} />
+                </>}
             </span>
           </div>
+
+          <div className="flex flex-col border-b-2 px-5 py-3 col-span-2">
+            <span className="text-[#7A7A7A] text-sm mb-2">রেফারেন্স</span>
+            <span className="text-black text-sm lg:text-lg font-[500] sm:flex">
+              <span>Rnext</span>
+            </span>
+          </div>
+
         </div>
         <div className="footer text-center my-10 p-5">
           <div className="w-14 h-14 mx-auto">
