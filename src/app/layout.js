@@ -1,10 +1,10 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
-
 export const metadata = {
   title: "বিকাশ ভাইয়া",
   description: "এটি সম্পন্ন বিনোদনের জন্য বানানো হয়েছে। কোনো ব্যাক্তি বা উৎসকে আঘাত করার জন্য নয়।",
@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         {children}
+        <Analytics />
         <ToastContainer
           position="bottom-right"
           autoClose={2000}
